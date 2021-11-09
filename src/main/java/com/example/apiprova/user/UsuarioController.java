@@ -25,5 +25,13 @@ public class UsuarioController {
     }
 
     @PutMapping("/{id}")
-    public
+    public ResponseEntity<UsuarioDTO> update(@PathVariable Long id, @RequestBody @Valid UsuarioForm usuarioForm){
+        return ResponseEntity.ok(usuarioService.update(id, usuarioForm));
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<?> delete(@PathVariable Long id){
+        usuarioService.delete(id);
+        return ResponseEntity.ok().build();
+    }
 }
