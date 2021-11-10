@@ -19,6 +19,12 @@ public class UsuarioController {
     @GetMapping
     public ResponseEntity<List<UsuarioDTO>> findAll(){return ResponseEntity.ok(usuarioService.findAll());}
 
+
+    @GetMapping("/{id}")
+    public ResponseEntity<UsuarioDTO> findById(@PathVariable Long id){
+        return ResponseEntity.ok(usuarioService.findById(id));
+    }
+
     @PostMapping
     public ResponseEntity<UsuarioDTO> create(@RequestBody @Valid UsuarioForm usuarioForm){
         return ResponseEntity.ok(usuarioService.create(usuarioForm));

@@ -29,8 +29,8 @@ public class UsuarioService {
 
     public UsuarioDTO findById(Long id){
         return UsuarioDTO.from(usuarioRepository.findById(id).orElseThrow(() -> {
-        logger.error("Usuario não encontrado {}", id);
-        throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
+            logger.error("Id não encontrado {}", id);
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND);
         }));
     }
 
