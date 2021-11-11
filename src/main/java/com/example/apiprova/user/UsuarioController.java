@@ -26,7 +26,7 @@ public class UsuarioController {
     }
 
     @PostMapping
-    public ResponseEntity<UsuarioDTO> create(@RequestBody @Valid UsuarioForm usuarioForm){
+    public ResponseEntity<UsuarioDTO> create(@RequestBody UsuarioForm usuarioForm){
         return ResponseEntity.ok(usuarioService.create(usuarioForm));
     }
 
